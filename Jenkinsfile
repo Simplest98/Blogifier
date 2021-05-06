@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh docker build --network=host -t Jenkins_task
+                sh docker build -t Jenkins_task
             }
         }
         stage('Push') {
