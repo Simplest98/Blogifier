@@ -1,7 +1,4 @@
 pipeline {
-	enviroment{
-	tag= "test"
-	}
 	
     agent any
 
