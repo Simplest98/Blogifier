@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId:'cb46df6e-b140-4439-8b9f-f4ceef31edce', url: 'http://git-server/user/repository.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'cb46df6e-b140-4439-8b9f-f4ceef31edce', url: 'https://github.com/Simplest98/Blogifier']]])
             }
         }
         stage('Docker Build') {
