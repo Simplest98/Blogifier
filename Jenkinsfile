@@ -13,13 +13,13 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh docker build -t Jenkins_task
+                sh "docker build -t Jenkins_task"
             }
         }
         stage('Push') {
             steps {
-                sh docker login localhost:8081 --username admin --password admin123
-				sh docker push Jenkins_task
+                sh "docker login localhost:8081 --username admin --password admin123"
+				sh "docker push Jenkins_task"
             }
         }
     }
