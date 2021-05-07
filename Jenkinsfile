@@ -12,7 +12,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Docker..'
-                sh "docker build --network=host -t jenkins_task ."
+                sh "docker build --network=host -t jenkins_task:tag1 ."
             }
         }
         stage('Push') {
@@ -20,7 +20,7 @@ pipeline {
                 echo 'Push..'
                 sh "cat /home/vm/pasw | docker login -u vpolevoi --password-stdin"
                 sh "docker login localhost:8083 -u admin -p vlad"
-				sh "docker push jenkins_task"
+				sh "docker push jenkins_task:tag1"
             }
         }
     }
