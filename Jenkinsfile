@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'Push..'
                 sh "docker login localhost:8081 --username admin --password admin123"
-				sh "docker push Jenkins_task"
+				sh "docker push jenkins_task"
             }
         }
     }
