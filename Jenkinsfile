@@ -12,7 +12,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Docker..'
-                sh "docker build --network=host -t Jenkins_task"
+                sh "docker build --network=host -t jenkins_task"
             }
         }
         stage('Push') {
