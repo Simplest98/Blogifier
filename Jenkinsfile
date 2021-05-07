@@ -6,13 +6,13 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout..'
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'cb46df6e-b140-4439-8b9f-f4ceef31edce', url: 'https://github.com/Simplest98/Blogifier']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/Simplest98/Blogifier']]])
             }
         }
         stage('Docker Build') {
             steps {
                 echo 'Docker..'
-                sh "docker build --network=host -t jenkins_task"
+                sh "docker build --network=host -t jenkins_task -f Dockerfile"
             }
         }
         stage('Push') {
