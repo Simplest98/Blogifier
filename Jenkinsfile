@@ -18,7 +18,7 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Push..'
-                sh "docker login localhost:8081 --username admin --password admin123"
+                sh "docker login localhost:8083 --username admin --password vlad"
 				sh "docker push jenkins_task"
             }
         }
