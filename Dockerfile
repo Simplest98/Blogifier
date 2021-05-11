@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine as base
 
 WORKDIR /opt/blogifier
 
-RUN apk update && apk add openjdk 11-jdk && \
+RUN apk update && apk --no-cache add openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community && \
 	dotnet tool install --global dotnet-sonarscanner && \
 	dotnet tool install --global coverlet.console 
 	
