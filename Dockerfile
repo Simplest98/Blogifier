@@ -3,11 +3,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1  as base
 
 WORKDIR /opt/blogifier
 
-RUN apk update  
-RUN apk --no-cache add openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community 
-RUN dotnet tool install --global dotnet-ef 
-RUN	dotnet tool install --global dotnet-sonarscanner 
-RUN	dotnet tool install --global coverlet.console 
+RUN apt-get update && apt-get install -y openjdk-11-jdk && \
+    dotnet tool install --global dotnet-sonarscanner && \
+    dotnet tool install --global coverlet.console --version 1.7.1
 	
 RUN dotnet sonarscanner begin /v:"1" /k:"jira_task" /d:sonar.host.url="http://127.0.0.1:9000" /d:sonar.login="bf893905ff3fa8c21981a604cee1c8ff9001995a"
 	
