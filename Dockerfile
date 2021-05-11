@@ -9,7 +9,7 @@ RUN dotnet tool install --global dotnet-ef
 RUN	dotnet tool install --global dotnet-sonarscanner 
 RUN	dotnet tool install --global coverlet.console 
 	
-RUN dotnet sonarscanner begin /k:"jira_task" /d:sonar.host.url="http://127.0.0.1:9000" /d:sonar.login="bf893905ff3fa8c21981a604cee1c8ff9001995a"
+RUN dotnet sonarscanner begin /v:"1" /k:"jira_task" /d:sonar.host.url="http://127.0.0.1:9000" /d:sonar.login="bf893905ff3fa8c21981a604cee1c8ff9001995a"
 	
 # Copy everything else and build
 COPY ./ /opt/blogifier
