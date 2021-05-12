@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1  as base
 WORKDIR /opt/blogifier
 
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-    dpkg -i packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
 	
 RUN apt-get update; \
     apt-get install -y apt-transport-https && \
