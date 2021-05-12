@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1  as base
 
 WORKDIR /opt/blogifier
-
+RUN cat /etc/os-release
 RUN apt-get update; \
     apt-get install -y apt-transport-https && \
     apt-get update && \
