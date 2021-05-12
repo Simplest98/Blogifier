@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1  as base
+FROM mcr.microsoft.com/dotnet/sdk:5.0  as base
 
 WORKDIR /opt/blogifier
 ENV PATH="$PATH:/root/.dotnet/tools"
@@ -12,8 +12,9 @@ RUN dotnet sonarscanner begin /v:"1" /k:"jira_task" /d:sonar.host.url="http://12
 # Copy everything else and build
 COPY ./ /opt/blogifier
 RUN dotnet restore -v m 
+
 RUN dotnet build --no-restore --nologo
-RUN dotnet build 
+
 
 RUN ["dotnet","publish","./src/Blogifier/Blogifier.csproj","-o","./outputs" ]
 
