@@ -31,7 +31,7 @@ RUN dotnet build --no-restore --nologo
 
 RUN ["dotnet","publish","./src/Blogifier/Blogifier.csproj","-o","./outputs" ]
 
-RUN dotnet sonarscanner end d:sonar.login="bf893905ff3fa8c21981a604cee1c8ff9001995a"
+RUN dotnet sonarscanner end /d:sonar.login="bf893905ff3fa8c21981a604cee1c8ff9001995a"
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine as run
 COPY --from=base /opt/blogifier/outputs /opt/blogifier/outputs
