@@ -13,14 +13,14 @@ pipeline {
 		stage('Docker Build') {
             steps {
                 echo 'Building Docker..'
-                sh "docker build --network=host -t jenkins_task:tag1 ."
+                sh "docker build --network=host -t localhost:8083/jenkins_task ."
             }
         }
 		
 		stage('Push') {
             steps {
                 echo 'Pushing..'
-                sh "docker login localhost:8083 -u admin -p vlad"
+                sh "docker login localhost:8083 -u admin -p ubuntu"
 				sh "docker push localhost:8083/jenkins_task"
             }
         }
