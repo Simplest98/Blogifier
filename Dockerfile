@@ -5,6 +5,8 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 
 RUN apt-get update && apt-get install -y apt-transport-https
 
+RUN dpkg ––configure –a
+
 RUN apt-get install -y openjdk-11-jdk && \
     dotnet tool install --global dotnet-sonarscanner && \
     dotnet tool install --global coverlet.console
