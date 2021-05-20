@@ -5,7 +5,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 
 RUN apt-get update && apt-get install -y apt-transport-https
 
-RUN dpkg --configure -a
+RUN mkdir -p /usr/share/man/man1
 
 RUN apt-get install -y openjdk-11-jdk && \
     dotnet tool install --global dotnet-sonarscanner && \
