@@ -23,6 +23,6 @@ pipeline {
                 sh "docker login localhost:8083 -u admin -p vlad"
 				sh "docker push localhost:8083/jenkins_task"
             }
-
+        }
     }
 }
