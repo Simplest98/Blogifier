@@ -3,17 +3,13 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 as base
 WORKDIR /opt/blogifier
 ENV PATH="$PATH:/root/.dotnet/tools"
 
-RUN apt-get update && apt-get install -y openjdk-11-jdk && \
+RUN apt-get update && apt-get install -y apt-transport-https
+
+RUN apt-get install -y openjdk-11-jdk && \
     dotnet tool install --global dotnet-sonarscanner && \
     dotnet tool install --global coverlet.console
 
 RUN dotnet sonarscanner begin /k:"dotnetapp" /d:sonar.host.url="http://192.168.0.43:9000"  /d:sonar.login="027d71bcea3948321b8ceaead882ac7d20806d5b"
-
-
-
-
-
-
 
 # Copy everything else and build
 COPY ./ /opt/blogifier
